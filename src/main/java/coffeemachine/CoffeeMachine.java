@@ -21,11 +21,12 @@ public class CoffeeMachine implements ICoffeeMachine {
                          IDrinkMaker drinkMaker,
                          IMessageSender messageSender,
                          IOrderTaker orderTaker,
-                         IMoneyController controller) {
+                         IMoneyController moneyController) {
         this.orderAppender = orderAppender;
         this.drinkMaker = drinkMaker;
         this.messageSender = messageSender;
         this.orderTaker = orderTaker;
+        this.moneyController = moneyController;
     }
 
     @Override

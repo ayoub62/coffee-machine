@@ -3,6 +3,7 @@ package appender;
 import models.orders.Order;
 
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class OrderAppender implements IOrderAppender {
 
@@ -24,6 +25,15 @@ public class OrderAppender implements IOrderAppender {
     }
 
     private String getDrinkId(Order order) {
-        return order.getDrink().getDrinkType().getDrinkId();
+        return new StringBuilder(order.getDrink().getDrinkType().getDrinkId())
+                .append(this.addSupplimentsToTheDrink(order))
+                .toString();
+    }
+
+    private String addSupplimentsToTheDrink(Order order) {
+        return order.getSuppliments()
+                .stream()
+                .map(suppliment -> suppliment.getSupplimentType().getSupplimentId())
+                .collect(Collectors.joining());
     }
 }

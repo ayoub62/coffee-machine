@@ -4,7 +4,8 @@ public enum EDrinkType {
 
     TEA("T"),
     COFFEE("C"),
-    CHOCOLATE("H");
+    CHOCOLATE("H"),
+    ORANGE("O");
 
     private String drinkId;
 
